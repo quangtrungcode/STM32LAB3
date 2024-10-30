@@ -11,6 +11,7 @@
 #include "software_timer.h"
 #include "button.h"
 #include "main.h"
+#include "traffic_light.h"
 
 #define INIT 1
 #define AUTO_RED1_GREEN2 2

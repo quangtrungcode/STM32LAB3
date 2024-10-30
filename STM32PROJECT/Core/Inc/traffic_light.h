@@ -10,5 +10,10 @@
 
 #include "main.h"
 
+void set_led();
+void LED_RED1_GREEN2();
+void LED_RED1_YELLOW2();
+void LED_GREEN1_RED2();
+void LED_YELLOW1_RED2();
 
 #endif /* INC_TRAFFIC_LIGHT_H_ */

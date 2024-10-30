@@ -6,3 +6,6 @@
  */
 #include "fsm_setting.h"
 
+void fsm_setting_run(){
+
+}
