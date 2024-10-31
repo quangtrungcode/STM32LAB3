@@ -9,9 +9,6 @@
 void set_led(){
 	HAL_GPIO_WritePin(GPIOA, LED_YELLOW1_Pin|LED_GREEN1_Pin|LED_RED1_Pin|LED_YELLOW2_Pin
 	                          |LED_RED_Pin|LED_GREEN2_Pin|LED_RED2_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(GPIOB, SEG0_Pin|SEG1_Pin|SEG2_Pin|EN3_Pin
-	                          |SEG3_Pin|SEG4_Pin|SEG5_Pin|SEG6_Pin
-	                          |EN0_Pin|EN1_Pin|EN2_Pin, GPIO_PIN_SET);
 }
 
 void LED_RED1_GREEN2(){

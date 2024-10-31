@@ -12,7 +12,7 @@
 #include "button.h"
 #include "main.h"
 #include "traffic_light.h"
-
+#include "led7_segment.h"
 #define INIT 1
 #define AUTO_RED1_GREEN2 2
 #define AUTO_RED1_YELLOW2 3

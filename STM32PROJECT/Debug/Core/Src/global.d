@@ -24,7 +24,8 @@ Core/Src/global.o: ../Core/Src/global.c ../Core/Inc/global.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Core/Inc/button.h ../Core/Inc/traffic_light.h
+ ../Core/Inc/button.h ../Core/Inc/traffic_light.h \
+ ../Core/Inc/led7_segment.h
 
 ../Core/Inc/global.h:
 
@@ -83,3 +84,5 @@ Core/Src/global.o: ../Core/Src/global.c ../Core/Inc/global.h \
 ../Core/Inc/button.h:
 
 ../Core/Inc/traffic_light.h:
+
+../Core/Inc/led7_segment.h:
