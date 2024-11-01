@@ -18,9 +18,17 @@ extern int countergreen02;
 extern int counterred13;
 extern int counteryellow13;
 extern int countergreen13;
+extern int savecounterred13;
+extern int a;
+extern int b;
+extern int c;
+extern int idx_led13;
 void set_led7_segement();
 void display7SEGX(int num);
 void display7SEGY(int num);
+//void led7_segment_run13(int d);
 void led7_segment_run13();
 void led7_segment_run02();
+void Save_led7RED_segment_run13();
+void Increase_Save_led7RED_segment_run13();
 #endif /* INC_LED7_SEGMENT_H_ */

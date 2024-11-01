@@ -13,6 +13,8 @@ void set_led(){
 
 void Turn_On_All_LED_RED(){
 	HAL_GPIO_WritePin(GPIOA, LED_RED1_Pin|LED_RED2_Pin , RESET);
+	HAL_GPIO_WritePin(GPIOA, LED_GREEN1_Pin|LED_GREEN2_Pin , SET);
+	HAL_GPIO_WritePin(GPIOA, LED_YELLOW1_Pin|LED_YELLOW2_Pin , SET);
 }
 void Turn_On_All_LED_GREEN(){
 	HAL_GPIO_WritePin(GPIOA, LED_GREEN1_Pin|LED_GREEN2_Pin , RESET);

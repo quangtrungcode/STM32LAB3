@@ -14,6 +14,7 @@
 #include "traffic_light.h"
 #include "led7_segment.h"
 #include "fsm_automatic.h"
+#include "fsm_manual.h"
 #define INIT 1
 #define AUTO_RED1_GREEN2 2
 #define AUTO_RED1_YELLOW2 3

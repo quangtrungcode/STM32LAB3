@@ -6,15 +6,20 @@
  */
 
 #include "led7_segment.h"
-
-int index_led02=0;
-int index_led13=0;
+int idx=0;
+int idx_led02=0;
+int idx_led13=0;
 int counterred02=5;
 int counteryellow02=2;
 int countergreen02=3;
 int counterred13=5;
 int counteryellow13=2;
 int countergreen13=3;
+int savecounterred13=0;
+int checkcounter=0;
+int a=5;
+int b=3;
+int c=2;
 void set_led7_segement(){
 	HAL_GPIO_WritePin(GPIOB, SEG0X_Pin|SEG1X_Pin|SEG2X_Pin|EN3_Pin
 		                          |SEG3X_Pin|SEG4X_Pin|SEG5X_Pin|SEG6X_Pin
@@ -65,9 +70,9 @@ void display7SEGY(int num) {
   }
 void led7_segment_run02(){
 
-//	if(index_led02>=10) index_led02=0;
-//	index_led02++;
-//	if(index_led02<=3){
+//	if(idx_led02>=10) idx_led02=0;
+//	idx_led02++;
+//	if(idx_led02<=3){
 //		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 //		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
 //		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
@@ -75,20 +80,20 @@ void led7_segment_run02(){
 //		display7SEGX(counterred02--);
 //		display7SEGY(countergreen02--);
 //	}
-//	if(index_led02>3&&index_led02<=5){
+//	if(idx_led02>3&&idx_led02<=5){
 //		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 //		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
 //		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 //		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, RESET);
 //		display7SEGX(counterred02--);
 //		display7SEGY(counteryellow02--);
-//			if(index_led02>=5){
+//			if(idx_led02>=5){
 //				counterred02=5;
 //				counteryellow02=2;
 //				countergreen02=3;
 //			}
 //	}
-//	if(index_led02>5&&index_led02<=8){
+//	if(idx_led02>5&&idx_led02<=8){
 //		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 //		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
 //		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
@@ -96,14 +101,14 @@ void led7_segment_run02(){
 //		display7SEGY(counterred02--);
 //		display7SEGX(countergreen02--);
 //	}
-//	if(index_led02>8&&index_led02<=10){
+//	if(idx_led02>8&&idx_led02<=10){
 //		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 //		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
 //		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 //		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, RESET);
 //		display7SEGY(counterred02--);
 //		display7SEGX(counteryellow02--);
-//			if(index_led02>=10){
+//			if(idx_led02>=10){
 //				counterred02=5;
 //				counteryellow02=2;
 //				countergreen02=3;
@@ -117,9 +122,9 @@ void led7_segment_run02(){
 			display7SEGY(0);
 }
 void led7_segment_run13(){
-	if(index_led13>=10) index_led13=0;
-	index_led13++;
-	if(index_led13<=3){
+	if(idx_led13>=10) idx_led13=0;
+	idx_led13++;
+	if(idx_led13<=3){
 		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
 		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
 		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
@@ -127,20 +132,20 @@ void led7_segment_run13(){
 		display7SEGX(counterred13--);
 		display7SEGY(countergreen13--);
 	}
-	if(index_led13>3&&index_led13<=5){
+	if(idx_led13>3&&idx_led13<=5){
 		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
 		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
 		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
 		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
 		display7SEGX(counterred13--);
 		display7SEGY(counteryellow13--);
-			if(index_led13>=5){
-				counterred13=5;
-				counteryellow13=2;
-				countergreen13=3;
+			if(idx_led13>=5){
+				counterred13=a;
+				counteryellow13=c;
+				countergreen13=b;
 			}
 	}
-	if(index_led13>5&&index_led13<=8){
+	if(idx_led13>5&&idx_led13<=8){
 		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
 		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
 		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
@@ -148,17 +153,92 @@ void led7_segment_run13(){
 		display7SEGY(counterred13--);
 		display7SEGX(countergreen13--);
 	}
-	if(index_led13>8&&index_led13<=10){
+	if(idx_led13>8&&idx_led13<=10){
 		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
 		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
 		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
 		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
 		display7SEGY(counterred13--);
 		display7SEGX(counteryellow13--);
-			if(index_led13>=10){
-				counterred13=5;
-				counteryellow13=2;
-				countergreen13=3;
+			if(idx_led13>=10){
+				counterred13=a;
+				counteryellow13=c;
+				countergreen13=b;
 			}
 	}
+}
+//void led7_segment_run13(int d){
+//	switch(d){
+//	case 0:
+//		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+//		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
+//		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+//		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+//		display7SEGX(counterred13--);
+//		display7SEGY(countergreen13--);
+//	  break;
+//	case 1:
+//		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+//		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
+//		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+//		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+//		display7SEGX(counterred13--);
+//		display7SEGY(counteryellow13--);
+//			if(counterred13==0){
+//				counterred13=a;
+//				counteryellow13=c;
+//				countergreen13=b;
+//			}
+//			break;
+//	case 2:
+//		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+//		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
+//		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+//		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+//		display7SEGX(countergreen13--);
+//		display7SEGY(counterred13--);
+//	//	display7SEGX(countergreen13--);
+//
+//	break;
+//	case 3:
+//		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+//		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
+//		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+//		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+//		display7SEGX(counteryellow13--);
+//		display7SEGY(counterred13--);
+//		//display7SEGX(counteryellow13--);
+//			if(counterred13==0){
+//				counterred13=a;
+//				counteryellow13=c;
+//				countergreen13=b;
+//
+//			}
+//			break;
+//	default:
+//		break;
+//	}
+//}
+void Save_led7_segment_run02(){
+}
+void Save_led7RED_segment_run13(){
+	HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+	HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
+	HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+	HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+	if(checkcounter==0){
+		savecounterred13=++counterred13;
+		checkcounter=1;
+	}
+	display7SEGX(savecounterred13++);
+	display7SEGY(1);
+	--savecounterred13;
+}
+void Increase_Save_led7RED_segment_run13(){
+	HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+	HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
+	HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+	HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+	display7SEGX(++savecounterred13);
+	display7SEGY(1);
 }

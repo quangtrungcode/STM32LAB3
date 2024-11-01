@@ -15,7 +15,7 @@ int KeyReg0[NUM_BUTTONS]={NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
 int KeyReg1[NUM_BUTTONS]={NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
 int KeyReg2[NUM_BUTTONS]={NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
 int KeyReg3[NUM_BUTTONS]={NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
-int TimerForKeyPress[NUM_BUTTONS]={500,500,500};
+int TimerForKeyPress[NUM_BUTTONS]={200,200,200};
 GPIO_TypeDef* Button_GPIO_Port[NUM_BUTTONS]={Button0_GPIO_Port,Button1_GPIO_Port,Button2_GPIO_Port};
 uint16_t Button_Pin[NUM_BUTTONS]={Button0_Pin,Button1_Pin,Button2_Pin};
 int isButtonPressed(int index){
@@ -61,7 +61,7 @@ void getKeyInput() {
 				KeyReg3[i] = KeyReg2[i];
 				if (KeyReg2[i] == PRESSED_STATE) {
 					subKeyProcess(i);  // Assuming a modified subKeyProcess that accepts button index
-					TimerForKeyPress[i] = 500;
+					TimerForKeyPress[i] = 200;
 				}
 			} else {
 				TimerForKeyPress[i]--;
