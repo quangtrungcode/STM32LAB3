@@ -33,14 +33,14 @@ void fsm_automatic_run(){
 					led7_segment_run13();
 					setTimer(2, 1000);
 			}
-
-//			if(isTimerExpired(2)==1){
-//				led7_segment_run13();
-//				setTimer(2, 1000);
-//			}
 			if(isTimerExpired(0)==1){
 				status=AUTO_RED1_YELLOW2;
 				setTimer(0, 2000);
+			}
+			if(isButtonPressed(0)==1){
+				status=MAN_RED;
+
+				setTimer(3, 500);
 			}
 			break;
 		case AUTO_RED1_YELLOW2:
@@ -53,15 +53,14 @@ void fsm_automatic_run(){
 							led7_segment_run13();
 							setTimer(2, 1000);
 			}
-//			led7_segment_run13();
-//			if(isTimerExpired(2)==1){
-//				led7_segment_run13();
-//				setTimer(2, 1000);
-//			}
 			if(isTimerExpired(0)==1){
 				status=AUTO_GREEN1_RED2;
-		    //	led7_segment_run13();
 				setTimer(0, 3000);
+			}
+			if(isButtonPressed(0)==1){
+				status=MAN_RED;
+
+				setTimer(3, 500);
 			}
 			break;
 		case AUTO_GREEN1_RED2:
@@ -74,15 +73,14 @@ void fsm_automatic_run(){
 							led7_segment_run13();
 							setTimer(2, 1000);
 			}
-
-//			led7_segment_run13();
-//			if(isTimerExpired(2)==1){
-//				led7_segment_run13();
-//				setTimer(2, 1000);
-//			}
 			if(isTimerExpired(0)==1){
 				status=AUTO_YELLOW1_RED2;
 				setTimer(0, 2000);
+			}
+			if(isButtonPressed(0)==1){
+				status=MAN_RED;
+
+				setTimer(3, 500);
 			}
 			break;
 		case AUTO_YELLOW1_RED2:
@@ -95,14 +93,14 @@ void fsm_automatic_run(){
 							led7_segment_run13();
 							setTimer(2, 1000);
 			}
-//			led7_segment_run13();
-//			if(isTimerExpired(2)==1){
-//				led7_segment_run13();
-//				setTimer(2, 1000);
-//			}
 			if(isTimerExpired(0)==1){
 				status=AUTO_RED1_GREEN2;
 				setTimer(0, 3000);
+			}
+			if(isButtonPressed(0)==1){
+				status=MAN_RED;
+
+				setTimer(3, 500);
 			}
 			break;
 		default:

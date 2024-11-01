@@ -11,6 +11,9 @@
 #include "main.h"
 
 void set_led();
+void Turn_On_All_LED_RED();
+void Turn_On_All_LED_GREEN();
+void Turn_On_All_LED_YELLOW();
 void LED_RED1_GREEN2();
 void LED_RED1_YELLOW2();
 void LED_GREEN1_RED2();

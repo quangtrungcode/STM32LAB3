@@ -10,6 +10,14 @@
 
 #include "main.h"
 
+extern int index_led02;
+extern int index_led13;
+extern int counterred02;
+extern int counteryellow02;
+extern int countergreen02;
+extern int counterred13;
+extern int counteryellow13;
+extern int countergreen13;
 void set_led7_segement();
 void display7SEGX(int num);
 void display7SEGY(int num);
