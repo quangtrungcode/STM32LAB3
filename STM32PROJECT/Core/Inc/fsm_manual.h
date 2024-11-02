@@ -10,7 +10,7 @@
 
 #include "main.h"
 
-extern int check;
+//extern int check;
 void fsm_manual_run();
 
 

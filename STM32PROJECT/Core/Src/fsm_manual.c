@@ -7,7 +7,7 @@
 #include "fsm_manual.h"
 #include "global.h"
 
-int check=0;
+//int check=0;
 void fsm_manual_run(){
 	switch(status){
 	case MAN_RED:
@@ -38,6 +38,7 @@ void fsm_manual_run(){
 			counter=0;
             setTimer(1, 443);
             setTimer(2, 1000);
+          //  setTimer(8, 1000);
 			--idx_led13;
 			setTimer(0, countergreen13*1000);
 		}
@@ -96,15 +97,16 @@ void fsm_manual_run(){
 			setTimer(2, 1000);
 			setTimer(3, 500);
 			setTimer(checkstatus, 10000);
+		    checksave=0;
 		}
 		if(isButtonPressed(2)==1){
 
 		}
 		break;
-	case INCREASE_VALUE_LED_RED:
-		break;
-	case SET_VALUE_LED_RED:
-		break;
+//	case INCREASE_VALUE_LED_RED:
+//		break;
+//	case SET_VALUE_LED_RED:
+//		break;
 	case MAN_GREEN:
 		if(check==0){
 			Turn_On_All_LED_GREEN();

@@ -231,7 +231,7 @@ void Save_led7RED_segment_run13(){
 		checkcounterred=1;
 	}
 	display7SEGX(savecounterred13++);
-	display7SEGY(1);
+	display7SEGY(2);
 	--savecounterred13;
 }
 void Increase_Save_led7RED_segment_run13(){
@@ -240,7 +240,7 @@ void Increase_Save_led7RED_segment_run13(){
 	HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
 	HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
 	display7SEGX(++savecounterred13);
-	display7SEGY(1);
+	display7SEGY(2);
 }
 void Save_led7GREEN_segment_run13(){
 	HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
@@ -252,6 +252,6 @@ void Save_led7GREEN_segment_run13(){
 		checkcountergreen=1;
 	}
 	display7SEGX(savecountergreen13++);
-	display7SEGY(2);
+	display7SEGY(3);
 	--savecountergreen13;
 }

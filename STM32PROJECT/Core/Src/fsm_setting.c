@@ -6,7 +6,7 @@
  */
 #include "fsm_setting.h"
 
-int checksave=0;
+//int checksave=0;
 void fsm_setting_run(){
       switch(status){
 		  case INCREASE_VALUE_LED_RED:
@@ -119,6 +119,7 @@ void fsm_setting_run(){
 			  counterred13 = savecounterred13;
 			  countergreen13=counterred13-counteryellow13;
 			  counteryellow13=counterred13-countergreen13;
+			  savecountergreen13=countergreen13;
 			  a=counterred13;
 			  b=countergreen13;
 			  c=counteryellow13;
@@ -192,6 +193,7 @@ void fsm_setting_run(){
 					setTimer(2, 1000);
 					setTimer(3, 500);
 					setTimer(checkstatus, 10000);
+					checkcountergreen=1;
 				}
 				if(isButtonPressed(1)==1){
 					status=INCREASE_VALUE_LED_RED;
