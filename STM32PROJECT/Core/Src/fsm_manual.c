@@ -21,7 +21,7 @@ void fsm_manual_run(){
 		}
 		if(isTimerExpired(1)==1){
 			led7_segment_run02();
-			setTimer(1, 400);
+			setTimer(1, 443);
 		}
 		if(isTimerExpired(2)==1){
 			Save_led7RED_segment_run13();
@@ -33,41 +33,58 @@ void fsm_manual_run(){
 		}
 		if(isTimerExpired(4)==1){
 			status=AUTO_RED1_GREEN2;
-//			++countergreen13;
-//			++counterred13;
-//			--idx_led13;
+			++countergreen13;
+			//counterred13;
+			counter=0;
+            setTimer(1, 443);
+            setTimer(2, 1000);
+			--idx_led13;
 			setTimer(0, countergreen13*1000);
 		}
 		if(isTimerExpired(5)==1){
 			status=AUTO_RED1_YELLOW2;
-			if(counterred13==a) {
-				counterred13=0;
-				counteryellow13=0;
+			if(counterred13!=a) {
+				++counteryellow13;
 			}
-			++counteryellow13;
-			++counterred13;
+			else{
+				counterred13=1;
+				counteryellow13=1;
+			}
+			counter=0;
+            setTimer(1, 443);
+            setTimer(2, 1000);
+			--idx_led13;
 			setTimer(0, counteryellow13*1000);
 		}
 		if(isTimerExpired(6)==1){
 			status=AUTO_GREEN1_RED2;
 			++countergreen13;
-			++counterred13;
+			//++counterred13;
+			--idx_led13;
+			counter=0;
+            setTimer(1, 443);
+            setTimer(2, 1000);
 			setTimer(0, countergreen13*1000);
 		}
 		if(isTimerExpired(7)==1){
 			status=AUTO_YELLOW1_RED2;
-			if(counterred13==a) {
-				counterred13=0;
-				counteryellow13=0;
+			if(counterred13!=a) {
+				++counteryellow13;
 			}
-			++counteryellow13;
-			++counterred13;
+			else{
+				counterred13=1;
+				counteryellow13=1;
+			}
+			--idx_led13;
+			counter=0;
+            setTimer(1, 443);
+            setTimer(2, 1000);
 			setTimer(0, counteryellow13*1000);
 		}
 		if(isButtonPressed(0)==1){
 			status= MAN_GREEN;
 			check=0;
-			setTimer(1, 400);
+			setTimer(1, 443);
 			setTimer(2, 1000);
 			setTimer(3, 500);
 			setTimer(4, 10000);
@@ -75,10 +92,10 @@ void fsm_manual_run(){
 		if(isButtonPressed(1)==1){
 			status=INCREASE_VALUE_LED_RED;
 			//Increase_Save_led7RED_segment_run13();
-			setTimer(1, 400);
+			setTimer(1, 443);
 			setTimer(2, 1000);
 			setTimer(3, 500);
-			setTimer(4, 10000);
+			setTimer(checkstatus, 10000);
 		}
 		if(isButtonPressed(2)==1){
 
@@ -91,7 +108,16 @@ void fsm_manual_run(){
 	case MAN_GREEN:
 		if(check==0){
 			Turn_On_All_LED_GREEN();
+			Save_led7GREEN_segment_run13();
 			check=1;
+		}
+		if(isTimerExpired(1)==1){
+			led7_segment_run02();
+			setTimer(1, 443);
+		}
+		if(isTimerExpired(2)==1){
+			Save_led7GREEN_segment_run13();
+			setTimer(2, 1000);
 		}
 		if(isTimerExpired(3)==1){
 			HAL_GPIO_TogglePin(GPIOA, LED_GREEN1_Pin|LED_GREEN2_Pin);
@@ -117,7 +143,7 @@ void fsm_manual_run(){
 //            set_led();
 //            set_led7_segement();
 //            setTimer(0, 3000);
-//            setTimer(1, 400);
+//            setTimer(1, 443);
 //            setTimer(2, 1000);
 //            counter=0;
 			status=INIT;

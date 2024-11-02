@@ -1,8 +1,8 @@
 traffic_light.c:9:6:set_led	8	static
 traffic_light.c:14:6:Turn_On_All_LED_RED	8	static
 traffic_light.c:19:6:Turn_On_All_LED_GREEN	8	static
-traffic_light.c:22:6:Turn_On_All_LED_YELLOW	8	static
-traffic_light.c:25:6:LED_RED1_GREEN2	8	static
-traffic_light.c:34:6:LED_RED1_YELLOW2	8	static
-traffic_light.c:43:6:LED_GREEN1_RED2	8	static
-traffic_light.c:52:6:LED_YELLOW1_RED2	8	static
+traffic_light.c:24:6:Turn_On_All_LED_YELLOW	8	static
+traffic_light.c:29:6:LED_RED1_GREEN2	8	static
+traffic_light.c:38:6:LED_RED1_YELLOW2	8	static
+traffic_light.c:47:6:LED_GREEN1_RED2	8	static
+traffic_light.c:56:6:LED_YELLOW1_RED2	8	static

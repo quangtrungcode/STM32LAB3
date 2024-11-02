@@ -6,3 +6,4 @@ led7_segment.c:124:6:led7_segment_run13	8	static
 led7_segment.c:222:6:Save_led7_segment_run02	4	static
 led7_segment.c:224:6:Save_led7RED_segment_run13	8	static
 led7_segment.c:237:6:Increase_Save_led7RED_segment_run13	8	static
+led7_segment.c:245:6:Save_led7GREEN_segment_run13	8	static

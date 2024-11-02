@@ -19,6 +19,8 @@ extern int counterred13;
 extern int counteryellow13;
 extern int countergreen13;
 extern int savecounterred13;
+extern int savecountergreen13;
+extern int savecounteryellow13;
 extern int a;
 extern int b;
 extern int c;
@@ -30,5 +32,6 @@ void display7SEGY(int num);
 void led7_segment_run13();
 void led7_segment_run02();
 void Save_led7RED_segment_run13();
+void Save_led7GREEN_segment_run13();
 void Increase_Save_led7RED_segment_run13();
 #endif /* INC_LED7_SEGMENT_H_ */

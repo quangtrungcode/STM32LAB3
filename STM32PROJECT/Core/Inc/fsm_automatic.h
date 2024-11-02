@@ -10,6 +10,7 @@
 
 #include "global.h"
 extern int counter;
+extern int checkstatus;
 void fsm_automatic_run();
 
 #endif /* INC_FSM_AUTOMATIC_H_ */
