@@ -205,16 +205,25 @@ void fsm_setting_run(){
 					setTimer(checkstatus, 10000);
 				}
 				if(isButtonPressed(2)==1){
-					status=AUTO_RED1_GREEN2;
-					counter=0;
-					//++countergreen13;
-					//counterred13;
-					idx_led13=0;
-					setTimer(0, b*1000);
-		            setTimer(1, 443);
-		            setTimer(2, 1000);
+					status=SAVE_VALUE_LED_RED;
+//					status=AUTO_RED1_GREEN2;
+//					counter=0;
+//					//++countergreen13;
+//					//counterred13;
+//					idx_led13=0;
+//					setTimer(0, b*1000);
+//		            setTimer(1, 443);
+//		            setTimer(2, 1000);
 				}
 
+			  break;
+		  case SAVE_VALUE_LED_RED:
+			  					status=AUTO_RED1_GREEN2;
+			  					counter=0;
+			  					idx_led13=0;
+			  					setTimer(0, b*1000);
+			  		            setTimer(1, 443);
+			  		            setTimer(2, 1000);
 			  break;
 		  default:
 			  break;

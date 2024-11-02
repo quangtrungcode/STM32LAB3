@@ -26,6 +26,7 @@
 #define MAN_YELLOW 14
 #define INCREASE_VALUE_LED_RED 15
 #define SET_VALUE_LED_RED 16
+#define SAVE_VALUE_LED_RED 17
 extern int status;
 
 #endif /* INC_GLOBAL_H_ */
