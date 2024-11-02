@@ -25,7 +25,7 @@ extern int a;
 extern int b;
 extern int c;
 extern int idx_led13;
-extern int checkcountergreen;
+//extern int checkcountergreen;
 void set_led7_segement();
 void display7SEGX(int num);
 void display7SEGY(int num);
