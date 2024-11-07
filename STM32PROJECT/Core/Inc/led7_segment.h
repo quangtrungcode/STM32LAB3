@@ -34,5 +34,8 @@ void led7_segment_run13();
 void led7_segment_run02();
 void Save_led7RED_segment_run13();
 void Save_led7GREEN_segment_run13();
+void Save_led7YELLOW_segment_run13();
 void Increase_Save_led7RED_segment_run13();
+void Increase_Save_led7GREEN_segment_run13();
+void Increase_Save_led7YELLOW_segment_run13();
 #endif /* INC_LED7_SEGMENT_H_ */

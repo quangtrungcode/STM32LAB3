@@ -12,7 +12,9 @@
 extern int counter;
 extern int checkstatus;
 extern int check;
-extern int checksave;
+extern int checksavered;
+extern int checksavegreen;
+extern int checksaveyellow;
 void fsm_automatic_run();
 
 #endif /* INC_FSM_AUTOMATIC_H_ */
