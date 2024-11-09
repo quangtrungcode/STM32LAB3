@@ -184,37 +184,42 @@ int checksaveyellow=0;
 //			break;
 //	}
 //}
+
 void fsm_automatic_run(){
 	switch(status){
 		case INIT:
 			 //  counter=0;
+
                set_led();
                set_led7_segement();
-       		if(counterred13==(countergreen13+counteryellow13)){
-       			a=counterred13;
-       			b=countergreen13;
-       			c=counteryellow13;
+
+       		if(counterred==(countergreen+counteryellow+1)){
+       			a=counterred;
+       			b=countergreen;
+       			c=counteryellow;
        			idx_led13=0;
+       			idx_led02=0;
        			status=AUTO_RED1_GREEN2;
        			counter=0;
        			setTimer(0, b*1000);
-       			setTimer(1, 487);
+       			setTimer(1, 500);
        			setTimer(2, 1000);
        		}
        		else{
-       			counterred13=a;
-       			countergreen13=b;
-       			counteryellow13=c;
+       			counterred=a;
+       			countergreen=b;
+       			counteryellow=c;
        			idx_led13=0;
+       			idx_led02=0;
        			status=AUTO_RED1_GREEN2;
        			counter=0;
                    setTimer(0, b*1000);
-                   setTimer(1, 487);
+                   setTimer(1, 500);
                    setTimer(2, 1000);
        		}
 //               status=AUTO_RED1_GREEN2;
 //               setTimer(0, b*1000);
-//               setTimer(1, 487);
+//               setTimer(1, 1000);
 //               setTimer(2, 1000);
 			break;
 		case AUTO_RED1_GREEN2:
@@ -225,7 +230,7 @@ void fsm_automatic_run(){
 			}
 			if(isTimerExpired(1)==1){
 				led7_segment_run02();
-				setTimer(1, 487);
+				setTimer(1, 1000);
 			}
 			if(isTimerExpired(2)==1){
 					led7_segment_run13();
@@ -234,7 +239,11 @@ void fsm_automatic_run(){
 			if(isTimerExpired(0)==1){
 				status=AUTO_RED1_YELLOW2;
 				//if(k1==0) {
-					setTimer(0, c*1000);
+				 clear_timer_flag(1);
+				 clear_timer_flag(2);
+				 setTimer(1, 500);
+				 setTimer(2, 1000);
+					setTimer(0, (c+1)*1000);
 				//	k1=1;
 				//}
 			//	else setTimer(0, (c+1)*1000);
@@ -246,13 +255,16 @@ void fsm_automatic_run(){
 		//		 HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 				status=MAN_RED;
 			//	HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-				setTimer(1, 487);
+				clear_timer_flag(1);
+				clear_timer_flag(2);
+				setTimer(1, 500);
 				setTimer(2, 1000);
 				setTimer(3, 500);
 			//	setTimer(4, 10000);
 			//	checkstatus=4;
 				check=0;
-				checksavered=0;
+				checkcounterred=0;
+			//	checksavered=0;
 			}
 			break;
 		case AUTO_RED1_YELLOW2:
@@ -263,7 +275,7 @@ void fsm_automatic_run(){
 			}
 			if(isTimerExpired(1)==1){
 				led7_segment_run02();
-				setTimer(1, 487);
+				setTimer(1, 1000);
 			}
 			if(isTimerExpired(2)==1){
 							led7_segment_run13();
@@ -271,6 +283,10 @@ void fsm_automatic_run(){
 			}
 			if(isTimerExpired(0)==1){
 				status=AUTO_GREEN1_RED2;
+				 clear_timer_flag(1);
+				 clear_timer_flag(2);
+				 setTimer(1, 500);
+				 setTimer(2, 1000);
 				setTimer(0, (b+1)*1000);
 			//	setTimer(0, (b)*1000);
 	              // counter=0;
@@ -279,12 +295,15 @@ void fsm_automatic_run(){
 			}
 			if(isButtonPressed(0)==1){
 				status=MAN_RED;
-				setTimer(1, 487);
+				clear_timer_flag(1);
+				clear_timer_flag(2);
+				setTimer(1, 500);
 				setTimer(2, 1000);
 				setTimer(3, 500);
 				setTimer(5, 10000);
-				checkstatus=5;
+				//checkstatus=5;
 				check=0;
+				checkcounterred=0;
 			}
 			break;
 		case AUTO_GREEN1_RED2:
@@ -295,7 +314,7 @@ void fsm_automatic_run(){
 			}
 			if(isTimerExpired(1)==1){
 				led7_segment_run02();
-				setTimer(1, 487);
+				setTimer(1, 1000);
 			}
 			if(isTimerExpired(2)==1){
 							led7_segment_run13();
@@ -307,19 +326,26 @@ void fsm_automatic_run(){
 //					setTimer(0, c*1000);
 //					k2=1;
 //				}
-				 setTimer(0, c*1000);
+				 clear_timer_flag(1);
+				 clear_timer_flag(2);
+				 setTimer(1, 500);
+				 setTimer(2, 1000);
+				 setTimer(0, (c+1)*1000);
 	              // setTimer(1, 500);
 	             // setTimer(2, 1000);
 	             //  counter=0;
 			}
 			if(isButtonPressed(0)==1){
 				status=MAN_RED;
-				setTimer(1, 487);
+				clear_timer_flag(1);
+				clear_timer_flag(2);
+				setTimer(1, 500);
 				setTimer(2, 1000);
 				setTimer(3, 500);
 				setTimer(6, 10000);
-				checkstatus=6;
+				//checkstatus=6;
 				check=0;
+				checkcounterred=0;
 			}
 			break;
 //		case KEEP_AUTO_GREEN1_RED2:
@@ -336,7 +362,7 @@ void fsm_automatic_run(){
 			}
 			if(isTimerExpired(1)==1){
 				led7_segment_run02();
-				setTimer(1, 487);
+				setTimer(1, 1000);
 			}
 			if(isTimerExpired(2)==1){
 							led7_segment_run13();
@@ -344,6 +370,10 @@ void fsm_automatic_run(){
 			}
 			if(isTimerExpired(0)==1){
 				status=AUTO_RED1_GREEN2;
+				 clear_timer_flag(1);
+				 clear_timer_flag(2);
+				 setTimer(1, 500);
+				 setTimer(2, 1000);
 				setTimer(0, (b+1)*1000);
 			//	setTimer(0, (b)*1000);
 	             //  setTimer(1, 500);
@@ -353,12 +383,15 @@ void fsm_automatic_run(){
 			}
 			if(isButtonPressed(0)==1){
 				status=MAN_RED;
-				setTimer(1, 487);
+				clear_timer_flag(1);
+				clear_timer_flag(2);
+				setTimer(1, 500);
 				setTimer(2, 1000);
 				setTimer(3, 500);
 				setTimer(7, 10000);
-				checkstatus=7;
+				//checkstatus=7;
 				check=0;
+				checkcounterred=0;
 			}
 			break;
 		default:

@@ -33,5 +33,6 @@
 #define SET_VALUE_LED_YELLOW 21
 #define CHECK_TIME 22
 extern int status;
-
+extern int before;
+extern int after;
 #endif /* INC_GLOBAL_H_ */

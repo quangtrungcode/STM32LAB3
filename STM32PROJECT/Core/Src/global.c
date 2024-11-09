@@ -7,3 +7,5 @@
 #include"global.h"
 
 int status=0;
+int before=0;
+int after=0;

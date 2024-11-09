@@ -12,6 +12,6 @@
 void setTimer(int index, int value);
 int isTimerExpired(int index);
 void timerRun();
-
+void clear_timer_flag(int index);
 
 #endif /* INC_SOFTWARE_TIMER_H_ */

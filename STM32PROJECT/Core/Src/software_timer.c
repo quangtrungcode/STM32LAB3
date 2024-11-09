@@ -23,7 +23,9 @@ int isTimerExpired(int index){
 	}
 	return 0;
 }
-
+void clear_timer_flag(int index){
+	timer_flag[index]=0;
+}
 void timerRun(){
 	for(int i=0;i<MAX_COUNTER;i++){
 		if(timer_counter[i]>0){
