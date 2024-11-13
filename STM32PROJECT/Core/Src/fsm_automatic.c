@@ -239,8 +239,8 @@ void fsm_automatic_run(){
 			if(isTimerExpired(0)==1){
 				status=AUTO_RED1_YELLOW2;
 				//if(k1==0) {
-				 clear_timer_flag(1);
-				 clear_timer_flag(2);
+			//	 clear_timer_flag(1);
+			//	 clear_timer_flag(2);
 				 setTimer(1, 500);
 				 setTimer(2, 1000);
 					setTimer(0, (c+1)*1000);
@@ -278,8 +278,8 @@ void fsm_automatic_run(){
 				setTimer(1, 1000);
 			}
 			if(isTimerExpired(2)==1){
-							led7_segment_run13();
-							setTimer(2, 1000);
+				led7_segment_run13();
+				setTimer(2, 1000);
 			}
 			if(isTimerExpired(0)==1){
 				status=AUTO_GREEN1_RED2;

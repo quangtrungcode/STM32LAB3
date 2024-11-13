@@ -21,15 +21,15 @@ int counteryellow13=1;
 int savecounterred13,savecountergreen13,savecounteryellow13 =0;
 int checkcounterred,checkcountergreen,checkcounteryellow=0;
 int checkcounterred02,checkcountergreen02,checkcounteryellow02=0;
-int a=25;
-int b=13;
-int c=11;
-int d=2;
-int e=1;
-int f=1;
-int counterred=25;
-int countergreen=13;
-int counteryellow=11;
+int a=5;
+int b=3;
+int c=1;
+//int d=2;
+//int e=1;
+//int f=1;
+int counterred=5;
+int countergreen=3;
+int counteryellow=1;
 
 int savecounterred02,savecountergreen02,savecounteryellow02=0;
 void set_led7_segement(){
@@ -168,6 +168,7 @@ void led7_segment_run13(){
 			if(idx_led13>=(b+c+1+1)){
 				counterred=a;
 				counteryellow=c;
+
 			//	countergreen13=b;
 			}
 			else{
